@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    android:fitsSystemWindows="true"
+    android:background="@color/background">
+
+
+    <include
+        android:id="@+id/actionbar"
+        layout="@layout/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_height"
+        android:layout_alignParentTop="true" />
+
+    <ListView
+        android:id="@+id/lv_message"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom"
+        android:layout_below="@+id/actionbar"
+        android:cacheColorHint="@color/background"
+        android:divider="@null"
+        android:listSelector="@color/background"
+        android:transcriptMode="alwaysScroll" />
+
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_audio"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_audio" />
+
+            <io.github.rockerhieu.emojicon.EmojiconEditText
+                android:id="@+id/et_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:maxLines="1"
+                emojicon:emojiconSize="28sp" />
+
+            <ImageView
+                android:id="@+id/iv_emoji"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_emoji" />
+
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_add_round" />
+
+            <TextView
+                android:id="@+id/tv_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/selector_green_radius"
+                android:paddingBottom="5dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="5dp"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="发送"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/panel_root"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:visibility="gone">
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawablePadding="10dp"
+        android:drawableTop="@drawable/ic_empty_msg"
+        android:gravity="center"
+        android:text="暂无消息"
+        android:textColor="@color/text_gray"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+
+
+</RelativeLayout>
